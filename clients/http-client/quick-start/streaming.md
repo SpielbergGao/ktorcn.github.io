@@ -13,8 +13,7 @@ ktor_version_review: 1.3.0
 
 ## 作用域流
 
-There are multiple ways of doing streaming. The safest way is using [HttpStatement](https://api.ktor.io/{{ site.ktor_version }}/io.ktor.client.statement/-http-statement/) with scoped `execute` block:
-有多种执行流式传输的方法。 最安全的方法是将 [HttpStatement](https://api.ktor.io/{{ site.ktor_version }}/io.ktor.client.statement/-http-statement/) 与范围为 `execute` 的块一起使用：
+有多种执行流式传输的方法。 最安全的方法是将 [HttpStatement](https://api.ktor.io/{{ site.ktor_version }}/io.ktor.client.statement/-http-statement/) 与 `execute` 的块一起使用：
 
 ```kotlin
 client.get<HttpStatement>.execute { response: HttpResponse ->
@@ -23,11 +22,9 @@ client.get<HttpStatement>.execute { response: HttpResponse ->
 }
 ```
 
-After `execute` block is finished, network resources is released.
 执行完 `execute` 块后，释放网络资源。
 
-You can also point different type for `execute` method:
-您还可以为 `execute` 方法指定不同的类型：
+你还可以为 `execute` 方法指定不同的类型：
 
 ```kotlin
 client.get<HttpStatement>.execute<ByteReadChannel> { channel: ByteReadChannel ->
